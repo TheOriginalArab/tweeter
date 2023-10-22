@@ -5,31 +5,9 @@
  */
 
 $(document).ready(function () {
-  const data = [
-    {
-      user: {
-        name: "Newton",
-        avatars: "https://i.imgur.com/73hZDYK.png",
-        handle: "@SirIsaac",
-      },
-      content: {
-        text: "If I have seen further it is by standing on the shoulders of giants",
-      },
-      created_at: 1461116232227,
-    },
-    {
-      user: {
-        name: "Descartes",
-        avatars: "https://i.imgur.com/nlhLi3I.png",
-        handle: "@rd",
-      },
-      content: {
-        text: "Je pense , donc je suis",
-      },
-      created_at: 1461113959088,
-    },
-  ];
-
+  
+  
+  
   const createTweetElement = function (tweet) {
     let $tweet = `<article class="tweet">
     <header class="tweet-header">
@@ -41,7 +19,7 @@ $(document).ready(function () {
     </header>
     <p class="tweet-text">${tweet.content.text}</p>
     <footer>
-    <span class="date template">${tweet.created_at}</span>
+    <span class="date template">${timeago.format(tweet.created_at)}</span>
     <i class="fa-solid fa-flag"></i>
     <i class="fa-solid fa-retweet"></i>
     <i class="fa-solid fa-heart"></i>
@@ -57,26 +35,38 @@ $(document).ready(function () {
 
     for (const tweet of tweets) {
       const $tweetElement = createTweetElement(tweet);
-      $(".tweet-container").append($tweetElement);
+      $(".tweets-container").prepend($tweetElement);
     }
   };
 
-  renderTweets(data);
+  const loadTweets = function () {
+    $.ajax("/tweets", { method: "GET" }).then((resolve, reject) =>
+      renderTweets(resolve)
+    );
+  };
+
+  loadTweets();
 
   $("#tweet-form").submit(function (event) {
     //Prevent the default behavior of the form
     event.preventDefault();
 
-    $.post({
-      url: "/tweets",
-      method: "POST",
-      data: $(this).serialize(),
-    });
+    const tweetContent = $("#tweet-text").val();
+
+    if (tweetContent.length > 140) {
+      alert("Tweet content is too long!");
+    }
+
+    if (!tweetContent || tweetContent.trim() === "") {
+      alert("Tweet content cannot be empty!");
+    }
+
+    if (tweetContent.trim().length > 0 && tweetContent.trim().length < 140) {
+      $.post({
+        url: "/tweets",
+        method: "POST",
+        data: $("#tweet-form").serialize(),
+      }).then((resolve, reject) => loadTweets());
+    }
   });
-
-  
-
-
-
-
 });
