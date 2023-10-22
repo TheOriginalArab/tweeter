@@ -1,0 +1,32 @@
+nav {
+  position: fixed;
+  height: 120px;
+  width: 100vw;
+  background-color: #4056a1;
+  color: #ffffff;
+  font-family: "Bungee", sans-serif;
+  padding: 0 1.5em;
+}
+
+#title {
+  display: flex;
+  justify-content: flex-start;
+}
+
+#new-tweet {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.fa-solid,
+.fa-angles-down {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0.25em 4.5em;
+}
+
+.icon::before {
+  display: inline-block;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+}
