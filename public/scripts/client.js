@@ -4,33 +4,34 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-const data = [
-  {
-    user: {
-      name: "Newton",
-      avatars: "https://i.imgur.com/73hZDYK.png",
-      handle: "@SirIsaac",
+$(document).ready(function () {
+  const data = [
+    {
+      user: {
+        name: "Newton",
+        avatars: "https://i.imgur.com/73hZDYK.png",
+        handle: "@SirIsaac",
+      },
+      content: {
+        text: "If I have seen further it is by standing on the shoulders of giants",
+      },
+      created_at: 1461116232227,
     },
-    content: {
-      text: "If I have seen further it is by standing on the shoulders of giants",
+    {
+      user: {
+        name: "Descartes",
+        avatars: "https://i.imgur.com/nlhLi3I.png",
+        handle: "@rd",
+      },
+      content: {
+        text: "Je pense , donc je suis",
+      },
+      created_at: 1461113959088,
     },
-    created_at: 1461116232227,
-  },
-  {
-    user: {
-      name: "Descartes",
-      avatars: "https://i.imgur.com/nlhLi3I.png",
-      handle: "@rd",
-    },
-    content: {
-      text: "Je pense , donc je suis",
-    },
-    created_at: 1461113959088,
-  },
-];
+  ];
 
-const createTweetElement = function (tweet) {
-  let $tweet = `<article class="tweet">
+  const createTweetElement = function (tweet) {
+    let $tweet = `<article class="tweet">
     <header class="tweet-header">
     <img src=${tweet.user.avatars} />
     <div class="user-info">
@@ -46,18 +47,36 @@ const createTweetElement = function (tweet) {
     <i class="fa-solid fa-heart"></i>
     </footer>
     </article>`;
-  return $tweet;
-};
+    return $tweet;
+  };
 
-const renderTweets = function (tweets) {
-  // loops through tweets
-  // calls createTweetElement for each tweet
-  // takes return value and appends it to the tweets container
+  const renderTweets = function (tweets) {
+    // loops through tweets
+    // calls createTweetElement for each tweet
+    // takes return value and appends it to the tweets container
 
-  for (const tweet of tweets) {
-    const $tweetElement = createTweetElement(tweet);
-    $(".tweet-container").append($tweetElement);
-  }
-};
+    for (const tweet of tweets) {
+      const $tweetElement = createTweetElement(tweet);
+      $(".tweet-container").append($tweetElement);
+    }
+  };
 
-renderTweets(data);
+  renderTweets(data);
+
+  $("#tweet-form").submit(function (event) {
+    //Prevent the default behavior of the form
+    event.preventDefault();
+
+    $.post({
+      url: "/tweets",
+      method: "POST",
+      data: $(this).serialize(),
+    });
+  });
+
+  
+
+
+
+
+});
