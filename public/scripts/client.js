@@ -58,18 +58,19 @@ $(document).ready(function () {
 
     const tweetContent = $("#tweet-text").val();
 
+    //error handling for tweet exceeding expected length
     if (tweetContent.length > 140) {
-      //alert("Tweet content is too long!");
       $("#error-message").text("Error! Tweet content is too long!").slideDown();
     }
 
+    //error handling for tweet being empty
     if (!tweetContent || tweetContent.trim() === "") {
-      //alert("Tweet content cannot be empty!");
       $("#error-message")
         .text("Error! Tweet content cannot be empty!")
         .slideDown();
     }
 
+    //error handling to ensure tweet is within character limit and isn't only filled with spaces.
     if (tweetContent.trim().length > 0 && tweetContent.trim().length < 140) {
       $.post({
         url: "/tweets",
