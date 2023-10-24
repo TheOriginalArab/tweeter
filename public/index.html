@@ -66,13 +66,15 @@
 
   <body>
     <!-- Top nav bar (fixed) -->
-    <nav>
-      <span id="title">tweeter</span>
-      <div id="new-tweet">Write a new tweet</div>
-      <i class="fa-solid fa-angles-down"></i>
+    <nav class="navbar">
+      <span class="navbar-logo">tweeter</span>
+      <div class="navbar-menu">
+        <span><b>Write</b> a new tweet</span>
+        <i class="fa-solid fa-angles-down"></i>
+      </div>
     </nav>
 
-    <header>
+    <header class="header">
       <div>
         <img src="/images/profile-hex.png" class="avatar" />
       </div>
@@ -87,6 +89,7 @@
       <section class="new-tweet">
         <h2>Compose Tweet</h2>
         <form action="/tweets" method="POST" id="tweet-form">
+          <div id="error-message"></div>
           <textarea
             name="text"
             id="tweet-text"
@@ -99,24 +102,7 @@
         </form>
       </section>
 
-      <section class="tweets-container">
-        <article class="tweet">
-          <header class="tweet-header">
-            <img src="https://i.imgur.com/nlhLi3I.png" />
-            <div class="user-info">
-              <div class="username">Peter Hashem</div>
-              <div class="user-tag">@PeterHashem</div>
-            </div>
-          </header>
-          <p class="tweet-text">Hello! This is my frist tweet!</p>
-          <footer>
-            <span class="date template">7:56PM</span>
-            <i class="fa-solid fa-flag"></i>
-            <i class="fa-solid fa-retweet"></i>
-            <i class="fa-solid fa-heart"></i>
-          </footer>
-        </article>
-      </section>
+      <section class="tweets-container"></section>
     </main>
   </body>
 </html>
