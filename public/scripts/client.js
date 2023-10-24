@@ -13,23 +13,23 @@ $(document).ready(function () {
 
   const createTweetElement = function (tweet) {
     let $tweet = `<article class="tweet">
-    <header class="tweet-header">
-    <img src=${escape(tweet.user.avatars)} />
-    <div class="user-info">
-    <div class="username">${escape(tweet.user.name)}</div>
-    <div class="user-tag">${escape(tweet.user.handle)}</div>
-    </div>
-    </header>
-    <p class="tweet-text">${escape(tweet.content.text)}</p>
-    <footer>
-    <span class="date template">${escape(
-      timeago.format(tweet.created_at)
-    )}</span>
-    <i class="fa-solid fa-flag"></i>
-    <i class="fa-solid fa-retweet"></i>
-    <i class="fa-solid fa-heart"></i>
-    </footer>
-    </article>`;
+          <header>
+            <div>
+              <img src=${escape(tweet.user.avatars)} />
+              <div>${escape(tweet.user.name)}</div>
+            </div>
+            <span>${escape(tweet.user.handle)}</span>
+          </header>
+          <p>${escape(tweet.content.text)}</p>
+          <footer>
+            <span>${escape(timeago.format(tweet.created_at))}</span>
+            <div>
+              <i class="fa-solid fa-flag"></i>
+              <i class="fa-solid fa-retweet"></i>
+              <i class="fa-solid fa-heart"></i>
+            </div>
+          </footer>
+        </article>`;
     return $tweet;
   };
 
@@ -50,7 +50,7 @@ $(document).ready(function () {
     );
   };
 
-  loadTweets();
+  //loadTweets();
 
   $("#tweet-form").submit(function (event) {
     //Prevent the default behavior of the form
@@ -59,11 +59,15 @@ $(document).ready(function () {
     const tweetContent = $("#tweet-text").val();
 
     if (tweetContent.length > 140) {
-      alert("Tweet content is too long!");
+      //alert("Tweet content is too long!");
+      $("#error-message").text("Error! Tweet content is too long!").slideDown();
     }
 
     if (!tweetContent || tweetContent.trim() === "") {
-      alert("Tweet content cannot be empty!");
+      //alert("Tweet content cannot be empty!");
+      $("#error-message")
+        .text("Error! Tweet content cannot be empty!")
+        .slideDown();
     }
 
     if (tweetContent.trim().length > 0 && tweetContent.trim().length < 140) {
@@ -73,5 +77,10 @@ $(document).ready(function () {
         data: $("#tweet-form").serialize(),
       }).then((resolve, reject) => loadTweets());
     }
+
+    $("#tweet-text").on("input", function () {
+      //When user starts typing, hide error message.
+      $("#error-message").slideUp();
+    });
   });
 });
