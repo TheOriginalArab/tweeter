@@ -50,8 +50,6 @@ $(document).ready(function () {
     );
   };
 
-  //loadTweets();
-
   $("#tweet-form").submit(function (event) {
     //Prevent the default behavior of the form
     event.preventDefault();
