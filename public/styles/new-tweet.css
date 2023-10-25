@@ -42,3 +42,7 @@ div#error-message {
   color: black;
   opacity: 1;
 }
+
+.new-tweet .counter.error {
+  color: red;
+}
