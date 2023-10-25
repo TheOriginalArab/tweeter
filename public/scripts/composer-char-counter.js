@@ -1,15 +1,17 @@
 $(document).ready(function () {
   $(".new-tweet textarea").on("input", function () {
     const maxLength = 140;
-    const currentLength = $(this).val().length;
+    const textArea = $(this);
+    const currentLength = textArea.val().length;
     const remainingChar = maxLength - currentLength;
 
-    $(".counter").text(remainingChar);
+    const counter = textArea.parent().find(".counter");
+    counter.text(remainingChar);
 
     if (remainingChar < 0) {
-      $(".counter").css("color", "red");
+      counter.addClass("error");
     } else {
-      $(".counter").css("color", "black");
+      counter.removeClass("error");
     }
   });
 });
