@@ -54,3 +54,16 @@ article.tweet footer div {
 article.tweet i:hover {
   color: red;
 }
+
+div.wrapping-tweet {
+  max-width: 1250px;
+}
+
+/*Desktop layout*/
+@media screen and (min-width: 1024px) {
+  .container {
+    display: flex;
+    flex-direction: row;
+    margin: 200px 15px 0 70px;
+  }
+}
