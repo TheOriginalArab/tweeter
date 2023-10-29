@@ -1,4 +1,4 @@
-header.header {
+.header {
   height: 520px;
   width: 100vw;
   background-image: url("https://www.transparenttextures.com/patterns/always-grey.png");
@@ -19,4 +19,22 @@ header.header {
   font-size: 24px;
   margin-top: 10px;
   color: black;
+}
+
+@media screen and (min-width: 1024px) {
+  .header {
+    background-color: #ff69b4;
+    background-image: url("https://www.transparenttextures.com/patterns/always-grey.png");
+    width: 40vw;
+    height: 420px;
+    padding: 40px;
+    margin: 200px 36px auto;
+  }
+}
+
+@media screen and (max-width: 1023.98px) {
+  .navbar {
+    background-color: #ff69b4;
+    background-image: url("https://www.transparenttextures.com/patterns/always-grey.png");
+  }
 }
