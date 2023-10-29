@@ -57,7 +57,7 @@
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
 
-    <!-- Composter-char-counter JS -->
+    <!-- Composer-char-counter JS -->
     <script
       type="text/javascript"
       src="/scripts/composer-char-counter.js"
@@ -85,24 +85,27 @@
     </header>
 
     <!-- Page-specific (main) content here -->
-    <main class="container">
-      <section class="new-tweet">
-        <h2>Compose Tweet</h2>
-        <form action="/tweets" method="POST" id="tweet-form">
-          <div id="error-message"></div>
-          <textarea
-            name="text"
-            id="tweet-text"
-            placeholder="What are you humming about?"
-          ></textarea>
-          <div id="below-text-area">
-            <button type="submit">Tweet</button>
-            <output name="counter" class="counter" for="tweet-text">140</output>
-          </div>
-        </form>
-      </section>
-
-      <section class="tweets-container"></section>
+    <main class="container row">
+      <div class="wrapping-tweet column">
+        <section class="new-tweet">
+          <h2>Compose Tweet</h2>
+          <form action="/tweets" method="POST" id="tweet-form">
+            <div id="error-message"><p></p></div>
+            <textarea
+              name="text"
+              id="tweet-text"
+              placeholder="What are you humming about?"
+            ></textarea>
+            <div id="below-text-area">
+              <button type="submit">Tweet</button>
+              <output name="counter" class="counter" for="tweet-text"
+                >140</output
+              >
+            </div>
+          </form>
+        </section>
+        <section class="tweets-container"></section>
+      </div>
     </main>
   </body>
 </html>
