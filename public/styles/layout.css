@@ -33,9 +33,36 @@ main {
   justify-content: center;
   background-color: #f4f1ec;
   width: 90%;
-  margin: 1em auto;
+  margin: 10em auto;
 }
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+.column {
+  flex: 30%;
+}
+
+.row {
+  display: flex;
+}
+
+@media screen and (max-width: 1024px) {
+  .column {
+    width: 100%;
+  }
+  div.wrapping-tweet.column {
+    margin: -190px auto;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .column:first-child {
+    margin-right: 100px;
+  }
+  body {
+    flex-direction: row;
+    justify-content: space-between;
+    margin: none;
+  }
+}
