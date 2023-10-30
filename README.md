@@ -29,6 +29,6 @@ Tweeter is a simple, single-page Twitter clone. Crafted to showcase my abilities
 
 ## Screenshots and Demos
 
-![Desktop View](https://github.com/TheOriginalArab/tweeter/blob/master/Docs/Desktop%20Version.png)
+!["Desktop View"](https://github.com/TheOriginalArab/tweeter/blob/master/Docs/Desktop%20Version.png)
 
-![Mobile View](https://github.com/TheOriginalArab/tweeter/blob/master/Docs/Mobile%20Size%20Version.png)
+!["Mobile View"](https://github.com/TheOriginalArab/tweeter/blob/master/Docs/Mobile%20Size%20Version.png)
