@@ -19,18 +19,16 @@ Tweeter is a simple, single-page Twitter clone. Crafted to showcase my abilities
 
 ### External Resources
 
-- **normalize.css** [normalize.css](https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css): Used for Styling.
-- **Font Awesome** [Font Awesome](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css): Library for Icons.
+- [normalize.css](https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css): Used for Styling.
+- [Font Awesome](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css): Library for Icons.
 
 ### JavaScript Libraries
 
-- **JQuery** [JQuery](https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js): Helps with Dynamic Functionality.
-- **Timeago.js** [Timeago.js](https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js): Gives tweets Real-Time timestamps.
+- [JQuery](https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js): Helps with Dynamic Functionality.
+- [Timeago.js](https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js): Gives tweets Real-Time timestamps.
 
 ## Screenshots and Demos
 
-Desktop View
-<img src="https://github.com/TheOriginalArab/tweeter/blob/master/Docs/Desktop%20Version.png" width="500">
+![Desktop View](https://github.com/TheOriginalArab/tweeter/blob/master/Docs/Desktop%20Version.png)
 
-Mobile View
-<img src="https://github.com/TheOriginalArab/tweeter/blob/master/Docs/Mobile%20Size%20Version.png" width="500">
+![Mobile View](https://github.com/TheOriginalArab/tweeter/blob/master/Docs/Mobile%20Size%20Version.png)
